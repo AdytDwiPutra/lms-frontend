@@ -51,7 +51,12 @@ ionic serve --port=4200
 
 Aplikasi berjalan di `http://localhost:4200`
 
-## Fitur
+
+## Demo Akun (Username dan Password)
+
+- **Admin** — admin@lms.com / password
+- **Pemateri** — pemateri@lms.com / password
+- **Peserta** — peserta@lms.com / password
 
 ### Authentication
 - Login & Register
