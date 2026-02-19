@@ -1,6 +1,4 @@
-# LMS Adhivasindo - Frontend
-
-Frontend web & mobile untuk Learning Management System (LMS) Adhivasindo menggunakan Ionic + React.
+# Take Home Test Adhivasindo - Frontend (Ionic + React)
 
 ## Tech Stack
 
@@ -44,7 +42,7 @@ const CONFIG = {
 };
 ```
 
-Ganti `YOUR_IP` dengan IP lokal kamu (cek dengan `ipconfig`).
+Ganti `YOUR_IP` dengan IP lokal yg dipakai.
 
 ### 5. Jalankan aplikasi
 ```bash
