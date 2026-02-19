@@ -28,14 +28,14 @@ import CONFIG from '../config';
 
 const iconMap: any = {
   materi: bookOutline,
-  video:  videocamOutline,
-  quiz:   helpCircleOutline,
+  video: videocamOutline,
+  quiz: helpCircleOutline,
 };
 
 const colorMap: any = {
   materi: '#1a237e',
-  video:  '#6a1b9a',
-  quiz:   '#e65100',
+  video: '#6a1b9a',
+  quiz: '#e65100',
 };
 
 const defaultForm = {
@@ -49,7 +49,8 @@ const SortableItem: React.FC<{
   canEdit: boolean;
   onEdit: (content: any) => void;
   onDelete: (id: number) => void;
-}> = ({ content, index, canEdit, onEdit, onDelete }) => {
+  onView: (id: number) => void;
+}> = ({ content, index, canEdit, onEdit, onDelete, onView }) => {
   const {
     attributes, listeners, setNodeRef,
     transform, transition, isDragging,
@@ -75,7 +76,11 @@ const SortableItem: React.FC<{
         <IonIcon icon={iconMap[content.type]} />
       </div>
 
-      <div className="content-info" style={{ flex: 1 }}>
+      <div
+        className="content-info"
+        style={{ flex: 1, cursor: 'pointer' }}
+        onClick={() => onView(content.id)} // ← tambahkan ini
+      >
         <span className="content-order">Materi {index + 1}</span>
         <h4>{content.title}</h4>
         <span className="content-type-badge">{content.type}</span>
@@ -100,19 +105,19 @@ const SortableItem: React.FC<{
 };
 
 const ModuleDetail: React.FC = () => {
-  const { id }      = useParams<{ id: string }>();
-  const history     = useHistory();
-  const user        = authService.me();
+  const { id } = useParams<{ id: string }>();
+  const history = useHistory();
+  const user = authService.me();
 
-  const [module, setModule]       = useState<any>(null);
-  const [contents, setContents]   = useState<any[]>([]);
-  const [loading, setLoading]     = useState(true);
+  const [module, setModule] = useState<any>(null);
+  const [contents, setContents] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [saving, setSaving]       = useState(false);
-  const [deleteId, setDeleteId]   = useState<number | null>(null);
-  const [editData, setEditData]   = useState<any>(null);
-  const [error, setError]         = useState('');
-  const [form, setForm]           = useState<any>(defaultForm);
+  const [saving, setSaving] = useState(false);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [editData, setEditData] = useState<any>(null);
+  const [error, setError] = useState('');
+  const [form, setForm] = useState<any>(defaultForm);
   const [thumbnail, setThumbnail] = useState<File | null>(null);
   const [thumbPreview, setThumbPreview] = useState('');
 
@@ -196,10 +201,10 @@ const ModuleDetail: React.FC = () => {
   const openEdit = (content: any) => {
     setEditData(content);
     setForm({
-      title:        content.title,
-      body:         content.body,
-      type:         content.type,
-      order:        content.order,
+      title: content.title,
+      body: content.body,
+      type: content.type,
+      order: content.order,
       is_published: content.is_published,
     });
     setThumbnail(null);
@@ -220,11 +225,11 @@ const ModuleDetail: React.FC = () => {
     setError('');
     try {
       const fd = new FormData();
-      fd.append('module_id',    id);
-      fd.append('title',        form.title);
-      fd.append('body',         form.body);
-      fd.append('type',         form.type);
-      fd.append('order',        String(form.order));
+      fd.append('module_id', id);
+      fd.append('title', form.title);
+      fd.append('body', form.body);
+      fd.append('type', form.type);
+      fd.append('order', String(form.order));
       fd.append('is_published', form.is_published ? '1' : '0');
       if (thumbnail) fd.append('thumbnail', thumbnail);
 
@@ -331,6 +336,7 @@ const ModuleDetail: React.FC = () => {
                     canEdit={canEdit}
                     onEdit={openEdit}
                     onDelete={(id) => setDeleteId(id)}
+                    onView={(id) => history.push(`/contents/${id}`)}
                   />
                 ))}
               </SortableContext>
