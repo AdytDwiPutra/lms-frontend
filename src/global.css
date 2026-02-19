@@ -1,0 +1,114 @@
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 768px) {
+  /* Sembunyikan sidebar di mobile */
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    min-width: unset;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    top: unset;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0;
+  }
+
+  .sidebar-logo { display: none; }
+  .sidebar-section-label { display: none; }
+  .sidebar-profile { display: none; }
+  .sidebar-bottom { 
+    flex-direction: row; 
+    border-top: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    gap: 0;
+    padding: 0;
+    flex: 1;
+  }
+
+  .sidebar-item {
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 12px;
+    font-size: 10px;
+    border-radius: 0;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+  }
+
+  .sidebar-item ion-icon { font-size: 20px; }
+
+  .sidebar-item.logout-item { display: none; }
+
+  .main-content {
+    margin-bottom: 60px; /* space untuk bottom nav */
+  }
+
+  /* Dashboard */
+  .dashboard-body {
+    flex-direction: column;
+  }
+
+  .right-column {
+    width: 100%;
+    min-width: unset;
+    border-left: none;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  /* Modul Grid */
+  .modul-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Nilai Table */
+  .nilai-header,
+  .nilai-row {
+    grid-template-columns: 40px 1fr 80px !important;
+  }
+
+  /* Sembunyikan kolom Class & Modul di mobile */
+  .nilai-class,
+  .nilai-modul,
+  .nilai-header span:nth-child(3),
+  .nilai-header span:nth-child(4) {
+    display: none;
+  }
+
+  /* Hero Banner */
+  .hero-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-btn { width: 100%; justify-content: center; }
+
+  /* Kalender */
+  .kalender-wrapper {
+    flex-direction: column;
+  }
+
+  .kalender-card {
+    width: 100%;
+  }
+
+  /* Page Header */
+  .page-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}

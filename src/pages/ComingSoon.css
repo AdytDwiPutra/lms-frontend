@@ -1,0 +1,29 @@
+.coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 180px);
+  gap: 16px;
+  color: #94a3b8;
+  text-align: center;
+  padding: 24px;
+}
+
+.coming-soon ion-icon {
+  font-size: 72px;
+  color: #cbd5e1;
+}
+
+.coming-soon h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #64748b;
+  margin: 0;
+}
+
+.coming-soon p {
+  font-size: 14px;
+  color: #94a3b8;
+  margin: 0;
+}

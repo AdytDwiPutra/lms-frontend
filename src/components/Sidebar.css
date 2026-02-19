@@ -1,0 +1,161 @@
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  height: 100vh;
+  background: #1a237e;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+/* Logo */
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 8px;
+}
+
+.sidebar-logo-icon {
+  width: 36px;
+  height: 36px;
+  background: white;
+  color: #1a237e;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.sidebar-logo span {
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Nav */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 10px;
+  flex: 1;
+}
+
+/* Menu Item */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar-item ion-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.sidebar-item.active {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-weight: 700;
+}
+
+.sidebar-item.logout-item {
+  color: rgba(255,100,100,0.85);
+}
+
+.sidebar-item.logout-item:hover {
+  background: rgba(255,100,100,0.15);
+  color: #ff6b6b;
+}
+
+/* Bottom */
+.sidebar-bottom {
+  padding: 0 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 12px;
+  margin-top: 8px;
+}
+
+.sidebar-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+  padding: 4px 14px;
+  margin-bottom: 4px;
+}
+
+/* Profile */
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-bottom: 4px;
+}
+
+.sidebar-profile:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.sidebar-profile-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.3);
+  flex-shrink: 0;
+}
+
+.sidebar-profile-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-profile-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-profile-role {
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  text-transform: capitalize;
+}
